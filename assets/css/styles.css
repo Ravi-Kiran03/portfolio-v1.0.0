@@ -252,59 +252,30 @@ img {
 }
 
 /* ===== SKILLS =====*/
-.skills__container {
-  row-gap: 2rem;
-  text-align: center;
+.skills__capsules {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between capsules */
+    margin-top: 20px;
 }
-.skills__subtitle {
-  margin-bottom: var(--mb-2);
+
+/* Individual skills capsule styling */
+.skills__capsule {
+
+    background-color: #f4f4f4; /* Background color of the capsule */
+    color: var(--second-color); /* Text color */
+    padding: 10px 20px; /* Padding inside the capsule */
+    border-radius: 25px; /* Capsule shape */
+    font-size: 14px; /* Font size */
+    font-weight: bold; /* Font weight */
+    text-align: center; /* Center text inside the capsule */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for a subtle 3D effect */
 }
-.skills__text {
-  margin-bottom: var(--mb-4);
-}
-.skills__data {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  font-weight: var(--font-semi);
-  padding: 0.5rem 1rem;
-  margin-bottom: var(--mb-4);
-  border-radius: 0.5rem;
-  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
-}
-.skills__icon {
-  font-size: 2rem;
-  margin-right: var(--mb-2);
-  color: var(--first-color);
-}
-.skills__names {
-  display: flex;
-  align-items: center;
-}
-.skills__bar {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background-color: var(--first-color);
-  height: 0.25rem;
-  border-radius: 0.5rem;
-  z-index: var(--z-back);
-}
-.skills__html {
-  width: 95%;
-}
-.skills__css {
-  width: 85%;
-}
-.skills__js {
-  width: 65%;
-}
-.skills__ux {
-  width: 85%;
-}
-.skills__img {
-  border-radius: 0.5rem;
+
+/* Optionally, add hover effect for capsules */
+.skills__capsule:hover {
+    background-color: var(--first-color); /* Change background on hover */
+    color: #fff; /* Change text color on hover (using white for contrast) */
 }
 
 /* ===== WORK =====*/
