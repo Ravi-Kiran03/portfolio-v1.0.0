@@ -9,8 +9,8 @@
   /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
   /* HSL color mode */
   --hue-color: 224;
-  --first-color: hsl(var(--hue-color), 89%, 60%);
-  --second-color: hsl(var(--hue-color), 56%, 12%);
+  --first-color: #00ff99;
+  --second-color: #ffffff;
   /*===== Fuente y tipografia =====*/
   --body-font: "Poppins", sans-serif;
   --big-font-size: 2rem;
@@ -49,7 +49,8 @@ body {
   margin: var(--header-height) 0 0 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  color: var(--second-color);
+  color: #ffffff; /* White text color */
+  background-color: #000000; /* Black background color */
 }
 
 h1, h2, p {
@@ -76,7 +77,7 @@ img {
 .section-title {
   position: relative;
   font-size: var(--h2-font-size);
-  color: var(--first-color);
+  color: #00ff99;
   margin-top: var(--mb-2);
   margin-bottom: var(--mb-4);
   text-align: center;
@@ -112,8 +113,8 @@ img {
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: #ffffff;
-  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+  background-color: #000000; /* Black background color */
+  box-shadow: 0 1px 4px rgba(150, 132, 132, 0.15); /* Adjust shadow if needed */
 }
 
 /*===== NAV =====*/
@@ -132,7 +133,7 @@ img {
     width: 80%;
     height: 100%;
     padding: 2rem;
-    background-color: var(--second-color);
+    background-color: #00ff99;
     transition: 0.5s;
   }
 }
@@ -141,10 +142,7 @@ img {
 }
 .nav__link {
   position: relative;
-  color: #fff;
-}
-.nav__link:hover {
-  position: relative;
+  color: #ffffff;
 }
 .nav__link:hover::after {
   position: absolute;
@@ -226,9 +224,8 @@ img {
 .button {
   display: inline-block;
   align-items: center;
-
-  background-color: var(--first-color);
-  color: #fff;
+  background-color: #00ff99;
+  color: #000000;
   padding: 10px 20px;
   font-weight: var(--font-semi);
   border-radius: 0.5rem;
@@ -241,7 +238,7 @@ img {
 }
 
 .button:hover {
-  box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== ABOUT =====*/
@@ -271,7 +268,7 @@ img {
 /* Individual skills capsule styling */
 .skills__capsule {
 
-    background-color: #f4f4f4; /* Background color of the capsule */
+    background-color: #00ff99    ; /* Background color of the capsule */
     color: var(--second-color); /* Text color */
     padding: 10px 20px; /* Padding inside the capsule */
     border-radius: 25px; /* Capsule shape */
@@ -326,7 +323,7 @@ img {
 /* ===== FOOTER =====*/
 .footer {
   background-color: var(--second-color);
-  color: #fff;
+  color: #00ff99;
   text-align: center;
   font-weight: var(--font-semi);
   padding: 2rem 0;
