@@ -269,7 +269,7 @@ img {
 .skills__capsule {
 
     background-color: #00ff99    ; /* Background color of the capsule */
-    color: var(--second-color); /* Text color */
+    color: #000000; /* Text color */
     padding: 10px 20px; /* Padding inside the capsule */
     border-radius: 25px; /* Capsule shape */
     font-size: 14px; /* Font size */
@@ -281,8 +281,8 @@ img {
 /* Optionally, add hover effect for capsules */
 .skills__capsule:hover {
     background-color: var(--first-color); /* Change background on hover */
-    color: #fff; /* Change text color on hover (using white for contrast) */
-}
+    color: #009966; /* Change text color on hover (using white for contrast) */
+} 
 
 /* ===== WORK =====*/
 .work__container {
