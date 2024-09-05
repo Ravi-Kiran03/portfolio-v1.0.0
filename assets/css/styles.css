@@ -395,9 +395,9 @@ img {
 .contact__button {
   display: inline-flex;
   align-items: center;
-  border: 2px solid var(--first-color); /* Dynamic border color */
+  border: 2px solid var(--green-black-color); /* Dynamic border color */
   background-color: var(--background-color); /* Dynamic background color */
-  color: var(--first-color); /* Dynamic text color */
+  color: var(--green-black-color); /* Dynamic text color */
   padding: 10px 20px;
   font-weight: var(--font-semi);
   border-radius: 0.5rem;
@@ -432,7 +432,7 @@ img {
 }
 
 .footer__name-white {
-  color: #ffffff; /* White for "Ravi" */
+  color:var(--white-black-colo); /* White for "Ravi" */
 }
 
 .footer__name-green {
