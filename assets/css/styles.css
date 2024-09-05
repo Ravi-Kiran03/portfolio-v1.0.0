@@ -1,18 +1,54 @@
-
-
 /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 /*===== VARIABLES CSS =====*/
 :root {
   --header-height: 3rem;
   --font-semi: 600;
-  /*===== Colores =====*/
-  /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
-  /* HSL color mode */
-  --hue-color: 224;
-  --first-color: #00ff99;
-  --second-color: #ffffff;
+ 
+  /*===== Colors for Dark Mode (default) =====*/
+  
+  --background-color: #000000; /* Dark background */
+  --text-color: #ffffff; /* Light text */
+  --header-background-color: #000000; /* Dark header background */
+  --first-color: #00ff99; /* Accent color */
+  --second-color: #ffffff; /* Light mode text */
+  --nav-menu-background: #00ff99; /* Dark mode nav background */
+  --nav-link-color: #ffffff; /* Light mode link color */
+  --footer-background-color: #000000; /* Footer background */
+  --button-background: #00ff99; /* Button background */
+  --button-text-color: #000000; /* Button text color */
+  --section-title-color: #00ff99; /* Section title color */
+
+  --black-white-color: #000000;
+  --green-black-color: #00ff99;
+  --green-white-color: #00ff99;
+  --white-black-color: #ffffff;
+  --white-green-color: #ffffff;
+
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  --background-color: #ffffff; /* Light background */
+  --text-color: #000000; /* Dark text */
+  --header-background-color: #f0f0f0; /* Light header background */
+  --first-color: #00ff99; /* Accent color */
+  --second-color: #000000; /* Light mode text */
+  --nav-menu-background: #f0f0f0; /* Light mode nav background */
+  --nav-link-color: #000000; /* Light mode link color */
+  --footer-background-color: #f0f0f0; /* Footer background */
+  --button-background: #000000; /* Button background */
+  --button-text-color: #000000; /* Button text color */
+  --section-title-color: #00ff99; /* Section title color */
+
+  --black-white-color: #ffffff;
+  --green-black-color: #000000;
+  --green-white-color: #ffffff;
+  --white-black-color: #000000;
+  --white-green-color: #00ff99;
+}
   /*===== Fuente y tipografia =====*/
+  :root {
   --body-font: "Poppins", sans-serif;
   --big-font-size: 2rem;
   --h2-font-size: 1.25rem;
@@ -50,8 +86,8 @@ body {
   margin: var(--header-height) 0 0 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  color: #ffffff; /* White text color */
-  background-color: #000000; /* Black background color */
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 h1, h2, p {
@@ -78,7 +114,7 @@ img {
 .section-title {
   position: relative;
   font-size: var(--h2-font-size);
-  color: #00ff99;
+  color: var(--green-black-color);
   margin-top: var(--mb-2);
   margin-bottom: var(--mb-4);
   text-align: center;
@@ -92,7 +128,7 @@ img {
   right: 0;
   margin: auto;
   top: 2rem;
-  background-color: var(--first-color);
+  background-color: var(--white-green-color);
 }
 
 .section {
@@ -114,7 +150,7 @@ img {
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: #000000; /* Black background color */
+  background-color: var(--header-background-color);
   box-shadow: 0 1px 4px rgba(150, 132, 132, 0.15); /* Adjust shadow if needed */
 }
 
@@ -134,16 +170,30 @@ img {
     width: 80%;
     height: 100%;
     padding: 2rem;
-    background-color: #00ff99;
+    background-color: var(--nav-menu-background);
     transition: 0.5s;
   }
+
+  .theme-toggle {
+    background-color: var(--black-white-color); /* Dark mode default */
+    color: var(--green-black-color); /* Green icon color */
+  }
+  /* Apply hover effects only if the device has a fine pointer (usually non-touch devices) */
+  @media (pointer: coarse) {
+    .theme-toggle:active {
+      background-color: var(--green-black-color); /* Green background when pressed */
+      color: var(--background-color); /* Black icon color when pressed */
+      border-color: var(--green-black-color); /* Green border when pressed */
+    }
+  }
+
 }
 .nav__item {
   margin-bottom: var(--mb-4);
 }
 .nav__link {
   position: relative;
-  color: #ffffff;
+  color: var(--nav-link-color);
 }
 .nav__link:hover::after {
   position: absolute;
@@ -156,11 +206,11 @@ img {
 }
 .nav__logo {
   .logo-white {
-    color: #ffffff; /* White color */
+    color: var(--text-color); /* White color */
   }
   
   .logo-green {
-    color: #00ff99; /* Green color */
+    color: var(--first-color); /* Use the first-color variable for green */
   }
 }
 .nav__toggle {
@@ -211,22 +261,22 @@ img {
   justify-content: center;
   width: 40px; /* Adjust size as needed */
   height: 40px; /* Adjust size as needed */
-  background-color: #000000; /* Black background */
-  color: #00ff99; /* Green icon color */
-  border: 2px solid #00ff99; /* Green border */
+  background-color: var(--background-color); /* Dynamic background color based on theme */
+  color: var(--green-black-color); /* Dynamic icon color based on theme */
+  border: 2px solid var(--green-black-color); /* Dynamic border color */
   border-radius: 50%; /* Circular shape */
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  margin: 0 5px;; /* Space between icons */
+  margin: 5px; /* Space between icons */
 }
 
 .home__social-icon i {
   font-size: 1.5rem; /* Adjust icon size as needed */
 }
-.home__social-icon:hover {
 
-  background-color: #00ff99; /* Green background on hover */
-  color: #000000; /* Black icon color on hover */
-  border-color: #00ff99; /* Green border on hover */
+.home__social-icon:hover {
+  background-color: var(--first-color); /* Green background on hover */
+  color: var(--background-color); /* Background color becomes icon color on hover */
+  border-color: var(--first-color); /* Keep green border on hover */
 
 }
 .home__img {
@@ -245,25 +295,28 @@ img {
 /*BUTTONS*/
 .button {
   display: inline-block;
-  align-items: center;
-  background-color: #000000;
-  color: #00ff99;
+  align-items: center; /* Optional: Only needed if using flex or grid */
+  background-color: var(--background-color); /* Dynamic background color */
+  color: var(--green-black-color); /* Dynamic text color */
   padding: 10px 20px;
-  font-weight: var(--font-semi);
+  font-weight: var(--font-semi); /* Semi-bold font */
   border-radius: 0.5rem;
   font-size: 16px;
-  border: 2px solid #00ff99; /* Green border */
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  border: 2px solid var(--green-black-color); /* Green border */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  vertical-align: middle; /* Aligns with other inline elements */
 }
+
 .button i {
-    margin-right: 8px; /* Space between icon and text */
+  margin-right: 8px; /* Space between icon and text */
 }
 
 .button:hover {
-  background-color: #00ff99; /* Green background on hover */
-  color: #000000; /* Black text color on hover */
-  border-color: #00ff99; /* Green border on hover */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: var(--first-color); /* Green background on hover */
+  color: var(--background-color); /* Black text color on hover */
+  border-color: var(--first-color); /* Green border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+
 }
 
 /* ===== ABOUT =====*/
@@ -292,22 +345,24 @@ img {
 
 /* Individual skills capsule styling */
 .skills__capsule {
-
-    background-color: #00ff99    ; /* Background color of the capsule */
-    color: #000000; /* Text color */
-    padding: 10px 20px; /* Padding inside the capsule */
-    border-radius: 25px; /* Capsule shape */
-    font-size: 14px; /* Font size */
-    font-weight: bold; /* Font weight */
-    text-align: center; /* Center text inside the capsule */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for a subtle 3D effect */
+  background-color: var(--green-white-color); /* Dynamic background color */
+  color: var(--button-text-color); /* Dynamic text color */
+  padding: 10px 20px; /* Padding inside the capsule */
+  border-radius: 25px; /* Capsule shape */
+  font-size: 14px; /* Font size */
+  font-weight: bold; /* Font weight */
+  text-align: center; /* Center text inside the capsule */
+  border: 2px solid transparent; /* Transparent border to maintain size */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for a subtle 3D effect */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
 }
 
 /* Optionally, add hover effect for capsules */
 .skills__capsule:hover {
-    background-color: var(--first-color); /* Change background on hover */
-    color: #009966; /* Change text color on hover (using white for contrast) */
-} 
+  background-color: var(--background-color); /* Change background on hover */
+  color: var(--green-black-color); /* Change text color on hover for contrast */
+  border-color: var(--green-black-color); /* Change border color on hover */
+}
 
 /* ===== WORK =====*/
 .work__container {
@@ -340,9 +395,9 @@ img {
 .contact__button {
   display: inline-flex;
   align-items: center;
-  border: 2px solid #00ff99; /* Green border */
-  background-color: #000000; /* Black background */
-  color: #00ff99; /* Green text color */
+  border: 2px solid var(--first-color); /* Dynamic border color */
+  background-color: var(--background-color); /* Dynamic background color */
+  color: var(--first-color); /* Dynamic text color */
   padding: 10px 20px;
   font-weight: var(--font-semi);
   border-radius: 0.5rem;
@@ -353,9 +408,9 @@ img {
 }
 
 .contact__button:hover {
-  background-color: #00ff99; /* Green background on hover */
-  color: #000000; /* Black text color on hover */
-  border-color: #00ff99; /* Keep border color green on hover */
+  background-color: var(--first-color); /* Change background on hover */
+  color: var(--background-color); /* Change text color on hover */
+  border-color: var(--first-color); /* Keep border color on hover */
 }
 
 .contact__button i {
@@ -363,10 +418,9 @@ img {
 }
 
 /* ===== FOOTER =====*/
-/* ===== FOOTER ===== */
 .footer {
-  background-color: #000000; /* Black background */
-  color: #ffffff; /* Default white text */
+  background-color: var(--footer-background-color); /* Dynamic background color */
+  color: var(--text-color); /* Dynamic text color */
   text-align: center;
   font-weight: var(--font-semi);
   padding: 2rem 0;
@@ -382,7 +436,7 @@ img {
 }
 
 .footer__name-green {
-  color: #00ff99; /* Green for "Kiran" */
+  color: var(--first-color); /* Dynamic green for "Kiran" */
 }
 
 .footer__social {
@@ -391,30 +445,55 @@ img {
 
 .footer__icon {
   font-size: 1.5rem;
-  color: #ffffff; /* Default white icon color */
+  color: var(--text-color); /* Dynamic icon color */
   margin: 0 var(--mb-2);
   transition: color 0.3s ease; /* Smooth transition on hover */
 }
 
 .footer__icon:hover {
-  color: #00ff99; /* Green on hover */
+  color: var(--first-color); /* Dynamic green on hover */
 }
 
 .footer__copyright {
   font-size: 0.875rem; /* Smaller font size for copyright notice */
-  color: #ffffff; /* White text color */
+  color: var(--text-color); /* Dynamic text color */
   margin-top: var(--mb-4); /* Space above the copyright text */
 }
 
 /* ===== MEDIA QUERIES=====*/
+
 @media screen and (max-width: 320px) {
   .home {
     row-gap: 2rem;
   }
   .home__img {
     width: 200px;
+    bottom: 10px; /* Move the image up */
+
+  }
+  .home__social {
+    padding-top: 0;
+    padding-bottom: 2rem;
+    flex-direction: row;
+    align-items: center; /* Center icons vertically */
+    justify-content: center; /* Center icons horizontally */
+  }
+
+}
+
+/* For devices (375px to 430px) */
+@media screen and (min-width: 375px) and (max-width: 430px) {
+  .home__social-icon {
+    margin: 6px; /* Slightly larger space between icons */
+  }
+  .home__social-icon:last-child {
+    margin-right: 0; /* Avoid extra space after the last icon */
+  }
+  .home__img {
+    bottom: 50px; /* Move the image up */
   }
 }
+
 @media screen and (min-width: 576px) {
   .home {
     padding: 4rem 0 2rem;
@@ -424,14 +503,17 @@ img {
     padding-bottom: 2.5rem;
     flex-direction: row;
     align-self: flex-end;
+    align-items: center; /* Center icons vertically */
+    
   }
   .home__social-icon {
     margin-bottom: 0;
     margin-right: var(--mb-4);
   }
+  
   .home__img {
     width: 300px;
-    bottom: 25%;
+    bottom: 30%; /* Move the image up by increasing the bottom percentage */
   }
   .about__container {
     grid-template-columns: repeat(2, 1fr);
@@ -524,3 +606,57 @@ img {
     width: 450px;
   }
 }
+
+/* Default Dark Mode Styles */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  background-color: var(--black-white-color); /* Dark mode default */
+  color: var(--green-black-color); /* Green icon color */
+  border: 2px solid var(--green-black-color); /* Green border */
+  border-radius: 50%; /* Circular shape */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.theme-toggle i {
+  font-size: 1.5rem; /* Adjust icon size as needed */
+}
+
+.theme-toggle:hover {
+  background-color: var(--green-black-color); /* Green background on hover */
+  color: var(--background-color); /* Black icon color on hover */
+  border-color: var(--green-black-color); /* Green border on hover */
+}
+
+.theme-toggle .bx-sun {
+  display: none; /* Hide sun icon by default */
+}
+
+.theme-toggle.dark-mode .bx-sun {
+  display: block; /* Show sun icon in dark mode */
+}
+
+.theme-toggle .bx-moon {
+  display: block; /* Show moon icon by default */
+}
+
+.theme-toggle.dark-mode .bx-moon {
+  display: none; /* Hide moon icon in dark mode */
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
