@@ -12,7 +12,7 @@
   --header-background-color: #000000; /* Dark header background */
   --first-color: #00ff99; /* Accent color */
   --second-color: #ffffff; /* Light mode text */
-  --nav-menu-background: #00ff99; /* Dark mode nav background */
+  --nav-menu-background: #000000; /* Dark mode nav background */
   --nav-link-color: #ffffff; /* Light mode link color */
   --footer-background-color: #000000; /* Footer background */
   --button-background: #00ff99; /* Button background */
@@ -32,20 +32,20 @@ body.light-mode {
   --background-color: #ffffff; /* Light background */
   --text-color: #000000; /* Dark text */
   --header-background-color: #f0f0f0; /* Light header background */
-  --first-color: #00ff99; /* Accent color */
+  --first-color: #00FF7F; /* Accent color */
   --second-color: #000000; /* Light mode text */
   --nav-menu-background: #f0f0f0; /* Light mode nav background */
   --nav-link-color: #000000; /* Light mode link color */
   --footer-background-color: #f0f0f0; /* Footer background */
   --button-background: #000000; /* Button background */
   --button-text-color: #000000; /* Button text color */
-  --section-title-color: #00ff99; /* Section title color */
+  --section-title-color: #00FF7F; /* Section title color */
 
   --black-white-color: #ffffff;
   --green-black-color: #000000;
   --green-white-color: #ffffff;
   --white-black-color: #000000;
-  --white-green-color: #00ff99;
+  --white-green-color: #00FF7F;
 }
   /*===== Fuente y tipografia =====*/
   :root {
@@ -151,7 +151,8 @@ img {
   left: 0;
   z-index: var(--z-fixed);
   background-color: var(--header-background-color);
-  box-shadow: 0 1px 4px rgba(150, 132, 132, 0.15); /* Adjust shadow if needed */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow under the header */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Thin line at the bottom of the header */
 }
 
 /*===== NAV =====*/
@@ -211,7 +212,9 @@ img {
   
   .logo-green {
     color: var(--first-color); /* Use the first-color variable for green */
+    
   }
+  
 }
 .nav__toggle {
   color: var(--second-color);
@@ -279,14 +282,23 @@ img {
   border-color: var(--first-color); /* Keep green border on hover */
 
 }
+
+.home__img-container {
+  position: relative;
+
+}
 .home__img {
   position: absolute;
   right: 0;
   bottom: 0;
   width: 260px;
+  height: auto;
+
 }
 .home__blob {
   fill: var(--first-color);
+  right: 0px; /* Move the blob to the right */
+  top: -50px; /* Move the blob upwards */
 }
 .home__blob-img {
   width: 360px;
@@ -424,6 +436,8 @@ img {
   text-align: center;
   font-weight: var(--font-semi);
   padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Thin line at the top of the footer */
+
 }
 
 .footer__title {
@@ -462,6 +476,16 @@ img {
 
 /* ===== MEDIA QUERIES=====*/
 
+@media screen and (max-width: 768px) {
+  .falling-text-container {
+      height: 1.5em; /* Adjust height for smaller screens */
+  }
+
+  .falling-text {
+      font-size: 1.2em; /* Smaller text size for smaller screens */
+  }
+}
+
 @media screen and (max-width: 320px) {
   .home {
     row-gap: 2rem;
@@ -489,9 +513,21 @@ img {
   .home__social-icon:last-child {
     margin-right: 0; /* Avoid extra space after the last icon */
   }
+    
   .home__img {
-    bottom: 50px; /* Move the image up */
+    position: absolute;
+    bottom: -600px; /* Move the image up */
+    right: 0;
+    top: 50%; /* Move it closer to the social media icons */
+    transform: translateY(-50%);
+    width: 250px; /* Adjust the size */
+    
   }
+
+  .home__data {
+    padding-bottom: 100px; /* Add space to prevent overlap */
+  }
+  
 }
 
 @media screen and (min-width: 576px) {
@@ -625,11 +661,25 @@ body {
   border: 2px solid var(--green-black-color); /* Green border */
   border-radius: 50%; /* Circular shape */
   cursor: pointer;
+  position: relative; /* For easier positioning of icons */
+  overflow: hidden; /* Ensure icons don't overflow the button */
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Icon rotation animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .theme-toggle i {
   font-size: 1.5rem; /* Adjust icon size as needed */
+  position: absolute; /* Stack icons on top of each other */
+  transition: opacity 0.3s ease, transform 1s ease; /* Smooth transition */
 }
 
 .theme-toggle:hover {
@@ -639,11 +689,16 @@ body {
 }
 
 .theme-toggle .bx-sun {
-  display: none; /* Hide sun icon by default */
+  opacity: 1; /* Show sun icon in light mode */
+  animation: rotate 5s linear infinite; /* Continuous rotation */
+
 }
 
 .theme-toggle.dark-mode .bx-sun {
   display: block; /* Show sun icon in dark mode */
+  animation: rotate s forwards; /* Full rotation and fade in */
+  opacity: 51; /* Show sun icon in dark mode */
+
 }
 
 .theme-toggle .bx-moon {
@@ -651,12 +706,128 @@ body {
 }
 
 .theme-toggle.dark-mode .bx-moon {
-  display: none; /* Hide moon icon in dark mode */
-}
+  animation: rotate-sun-moon 0.5s forwards reverse; /* Rotate moon out */
+  opacity: 0; /* Hide moon icon in dark mode */
+  transform: rotate(180deg); /* Full rotation */}
 
 /* Light Mode Styles */
 body.light-mode {
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+/* New Effect*/
+.falling-text-container {
+  position: relative;
+  overflow: hidden;
+  height: 2.1em; /* Adjust based on your text size to fit within the container */
+  display: flex;
+  align-items: center; /* Center text vertically */
+}
+
+.falling-text {
+  position: absolute;
+  width: 100%;
+  font-size: 1.1em; /* Adjust to fit your design. Larger size may need a larger container height */
+  font-weight: bold; /* Optional: make text bold if desired */
+  white-space: nowrap; /* Prevent text wrapping */
+  animation: fall 0.5s ease-in-out; /* Match duration with JavaScript */
+}
+
+@keyframes fall {
+  0% {
+      transform: translateY(-100%); /* Start above the container */
+      opacity: 0; /* Start invisible */
+  }
+  50% {
+      opacity: 1; /* Become visible midway through the animation */
+  }
+  100% {
+      transform: translateY(0); /* End at the normal position */
+  }
+}
+
+/* Timeline/Roadmap CSS */
+.timeline-container {
+  position: relative;
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+.timeline-block {
+  position: relative;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.timeline-block:before {
+  content: '';
+  position: absolute;
+  left: 25px; /* Position the line according to the timeline icon's center */
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--first-color); /* Use your primary color here */
+  z-index: -1; /* Keep the line behind the content */
+}
+
+.timeline-block:last-child:before {
+  display: none; /* No line after the last block */
+}
+
+.timeline-icon {
+  background: var(--first-color);
+  color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+  margin-right: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-content {
+  background-color: var(--container-color);
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 90px); /* Adjust content width considering icon and margin */
+}
+
+.timeline-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.timeline-date {
+  color: var(--text-light-color);
+  font-size: 0.875rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Add responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .timeline-container {
+      margin-left: 20px;
+  }
+
+  .timeline-block {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .timeline-content {
+      width: 100%;
+  }
+
+  .timeline-block:before {
+      left: 50%;
+      transform: translateX(-50%);
+  }
 }
 
