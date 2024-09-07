@@ -24,6 +24,11 @@
   --green-white-color: #00ff99;
   --white-black-color: #ffffff;
   --white-green-color: #ffffff;
+  --green-green-color: #00ff99;
+  --White-grey-color: #ffffff;
+  --grey-grey-color: #CCCCCC;
+
+
 
 }
 
@@ -46,6 +51,11 @@ body.light-mode {
   --green-white-color: #ffffff;
   --white-black-color: #000000;
   --white-green-color: #00FF7F;
+  --green-green-color: #00FF7F;
+  --White-grey-color: #222222;
+  --grey-grey-color: #222222;
+
+
 }
   /*===== Fuente y tipografia =====*/
   :root {
@@ -256,7 +266,9 @@ img {
 }
 .home__social {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  margin-top: 0px;
+  
 }
 .home__social-icon {
   display: inline-flex;
@@ -269,7 +281,9 @@ img {
   border: 2px solid var(--green-black-color); /* Dynamic border color */
   border-radius: 50%; /* Circular shape */
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  margin: 5px; /* Space between icons */
+  margin: 15px; /* Space between icons */
+  margin-top: -10px;
+
 }
 
 .home__social-icon i {
@@ -290,18 +304,20 @@ img {
 .home__img {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -50px;
   width: 260px;
   height: auto;
+  margin-bottom: -80px;
 
 }
 .home__blob {
   fill: var(--first-color);
   right: 0px; /* Move the blob to the right */
   top: -50px; /* Move the blob upwards */
+  
 }
 .home__blob-img {
-  width: 360px;
+  width: 367px;
 }
 
 /*BUTTONS*/
@@ -476,81 +492,49 @@ img {
 
 /* ===== MEDIA QUERIES=====*/
 
-@media screen and (max-width: 768px) {
-  .falling-text-container {
-      height: 1.5em; /* Adjust height for smaller screens */
-  }
-
-  .falling-text {
-      font-size: 1.2em; /* Smaller text size for smaller screens */
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .home {
-    row-gap: 2rem;
-  }
+/* For screens between 230px and 315px */
+@media screen and (max-width: 315px) and (min-width: 230px) {
   .home__img {
-    width: 200px;
-    bottom: 10px; /* Move the image up */
-
-  }
-  .home__social {
-    padding-top: 0;
-    padding-bottom: 2rem;
-    flex-direction: row;
-    align-items: center; /* Center icons vertically */
-    justify-content: center; /* Center icons horizontally */
+    bottom: -300px; /* Shift the image down */
+    left: 10px;
   }
 
-}
-
-/* For devices (375px to 430px) */
-@media screen and (min-width: 375px) and (max-width: 430px) {
-  .home__social-icon {
-    margin: 6px; /* Slightly larger space between icons */
-  }
-  .home__social-icon:last-child {
-    margin-right: 0; /* Avoid extra space after the last icon */
-  }
-    
-  .home__img {
-    position: absolute;
-    bottom: -600px; /* Move the image up */
-    right: 0;
-    top: 50%; /* Move it closer to the social media icons */
-    transform: translateY(-50%);
-    width: 250px; /* Adjust the size */
-    
-  }
-
-  .home__data {
-    padding-bottom: 100px; /* Add space to prevent overlap */
-  }
+.home__social {
+  margin-bottom: 50px; /* Reduce margin between icons and image */
   
 }
 
-@media screen and (min-width: 576px) {
-  .home {
-    padding: 4rem 0 2rem;
-  }
-  .home__social {
-    padding-top: 0;
-    padding-bottom: 2.5rem;
-    flex-direction: row;
-    align-self: flex-end;
-    align-items: center; /* Center icons vertically */
-    
-  }
-  .home__social-icon {
-    margin-bottom: 0;
-    margin-right: var(--mb-4);
-  }
-  
+}
+
+/* For screens between 315px and 575px */
+@media screen and (max-width: 575px) and (min-width: 315px) {
   .home__img {
-    width: 300px;
-    bottom: 30%; /* Move the image up by increasing the bottom percentage */
+    bottom: -550px; /* Adjust to the desired position */
+    left: 10px;
   }
+}
+
+@media screen and (max-width: 768px) and (min-width: 574px) {
+
+  .home__social {
+    flex-direction: row; /* Make icons horizontal */
+    justify-content: center; /* Center the icons */
+  }
+
+  .home__social-icon {
+    margin: 6px; /* Add some space between icons */
+    align-items: center; /* Center vertically */
+
+  }
+
+
+  /* Alternatively, you can add space specifically below the image */
+  .home {
+    padding-bottom: 50px; /* Increase padding to prevent the image from overlapping */
+  }
+}
+
+@media screen and (min-width: 576px) {  
   .about__container {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
@@ -574,6 +558,9 @@ img {
     justify-items: center;
   }
 }
+
+/* For screens larger than 768px */
+
 @media screen and (min-width: 768px) {
   body {
     margin: 0;
@@ -610,9 +597,10 @@ img {
     padding: 8rem 0 2rem;
   }
   .home__img {
-    width: 400px;
-    bottom: 10%;
+    width: 380px;
+    bottom: 0.3rem;
   }
+
   .about__container {
     padding-top: 2rem;
   }
@@ -630,6 +618,9 @@ img {
     column-gap: 2rem;
   }
 }
+
+/* FOR Screens larger than 992 */
+
 @media screen and (min-width: 992px) {
   .bd-grid {
     margin-left: auto;
@@ -639,7 +630,14 @@ img {
     padding: 10rem 0 2rem;
   }
   .home__img {
-    width: 450px;
+    width: 480px;
+    bottom: 2rem;
+  }
+  .section-title {
+    margin-top: 100px; /* Adjust to create space between the title and the image */
+  }
+  .work .section-title {
+    margin-top: 20px; /* Extra margin specifically for the Work section title */
   }
 }
 
@@ -690,7 +688,7 @@ body {
 
 .theme-toggle .bx-sun {
   opacity: 1; /* Show sun icon in light mode */
-  animation: rotate 5s linear infinite; /* Continuous rotation */
+  animation: rotate 15s linear infinite; /* Continuous rotation */
 
 }
 
@@ -726,7 +724,7 @@ body.light-mode {
 }
 
 .falling-text {
-  position: absolute;
+  position: relative;
   width: 100%;
   font-size: 1.1em; /* Adjust to fit your design. Larger size may need a larger container height */
   font-weight: bold; /* Optional: make text bold if desired */
@@ -747,87 +745,292 @@ body.light-mode {
   }
 }
 
-/* Timeline/Roadmap CSS */
-.timeline-container {
-  position: relative;
-  padding: 20px 0;
-  margin-top: 50px;
+/* Media Queries for falling text */
+@media screen and (min-width: 576px) {
+
+  .falling-text-container {
+    height: 2.1em; /* Increase the container height for larger screens */
+  }
+
+  .falling-text {
+    font-size: 1.1em; /* Increase the font size for larger screens */
+  }
+
 }
 
-.timeline-block {
-  position: relative;
-  margin-bottom: 30px;
-  display: flex;
-  align-items: flex-start;
+@media screen and (min-width: 769px) {
+
+  .falling-text-container {
+    height: 2.1em; /* Further increase the container height */
+  }
+
+  .falling-text {
+    font-size: 1.1em; /* Further increase the font size */
+  }
+
 }
 
-.timeline-block:before {
-  content: '';
+@media screen and (min-width: 941px) {
+
+  .falling-text-container {
+    height: 2.1em; /* Further increase the container height */
+  }
+
+  .falling-text {
+    font-size: 1.1em; /* Further increase the font size */
+  }
+
+}
+
+/* Timeline Toggle Buttons */
+
+  .timeline-toggle-buttons {
+    justify-content: center;
+    margin-top: 20px; /* Adjust this value to move the buttons down */
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px; /* Add space between the buttons */
+
+  }
+
+  .toggle-btn {
+    background: none; /* No background */
+    border: none; /* No border */
+    color: var(--section-title-color); /* Text color to match section titles */
+    font-size: 1.2rem; /* Font size similar to section titles */
+    font-weight: bold; /* Bold text */
+    cursor: pointer;
+    margin: 0 20px; /* Horizontal spacing between buttons */
+    padding: 0; /* No padding */
+    position: relative; /* Necessary for ::after positioning */
+
+  }
+
+.toggle-btn::after {
+  content: "";
   position: absolute;
-  left: 25px; /* Position the line according to the timeline icon's center */
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--first-color); /* Use your primary color here */
-  z-index: -1; /* Keep the line behind the content */
+  width: 0; /* Start with no underline */
+  height: 2px; /* Thickness of the underline */
+  left: 50%; /* Center the underline */
+  transform: translateX(-50%); /* Adjust to ensure the underline is centered */
+  bottom: -5px; /* Position the underline just below the text */
+  background-color: var(--white-black-color); /* Underline color */
+  transition: width 0.3s ease; /* Smooth transition for underline */
 }
 
-.timeline-block:last-child:before {
-  display: none; /* No line after the last block */
+.toggle-btn:hover::after {
+  width: 100%; /* Full width underline on hover */
 }
 
-.timeline-icon {
-  background: var(--first-color);
-  color: #fff;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+.toggle-btn.active {
+  color: var(--first-color); /* Change text color for active button */
+}
+
+
+/* ===== Timeline Section (Experience, Education, Certifications) ===== */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Poppins;
+}
+
+.main {
+	width: 100%;
+	height: auto;
+	display: flex;
+	place-items: center;
+	background-color: var(--black-white-color);
+	padding: 80px 0;
+  margin-top: 5px; /* Add margin-top to move it further down */
+  margin-bottom: -10px;
+  justify-content: center; /* Center the buttons inside the 'main' */
+
+
+}
+.main .head {
+	font-size: 29px;
+	color: var(--button-background);
+	position: relative;
+	margin-bottom: 10px;
+	font-weight: 50;
+  place-items: center;
   text-align: center;
-  line-height: 50px;
-  font-size: 24px;
-  margin-right: 20px;
-  position: relative;
-  z-index: 1;
+
+}
+.main .head::after {
+	content: " ";
+	position: relative;
+	width: 50%;
+	height: 3px;
+	left: 50%;
+	bottom: -5px;
+	transform: translateX(-50%);
+	background-image: var(--button-background);
 }
 
-.timeline-content {
-  background-color: var(--container-color);
-  padding: 15px;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: calc(100% - 90px); /* Adjust content width considering icon and margin */
+/* Container Css Start  */
+
+.container {
+	width: 80%;
+	height: auto;
+	margin: -30px 0;
+	position: relative;
+}
+.container ul {
+	list-style: none;
+}
+.container ul::after {
+	content: " ";
+	position: absolute;
+	width: 2px;
+	height: 100%;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	background-image: linear-gradient(to bottom, var(--first-color), var(--first-color));
+}
+.container ul li {
+	width: 50%;
+	height: auto;
+	padding: 15px 20px;
+	background-color: var(--black-white-color);;
+	border-radius: 8px;
+	box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.218);
+	position: relative;
+	margin-bottom: 30px;
+	z-index: 99;
+  margin-top: 0px; /* Add margin-top to give more spacing between items */
+
+}
+.container ul li:nth-child(4) {
+	margin-bottom: 0;
+}
+/* for circle border colour*/
+.container ul li .circle {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: var(--first-color);
+	top: 0;
+	display: grid;
+	place-items: center;
 }
 
-.timeline-title {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+/* full circle colour*/
+.circle::after{
+	content: ' ';
+	width: 12px;
+	height: 12px;
+	background-color: var(--first-color);
+	border-radius: 50%;
+}
+ul li:nth-child(odd) .circle {
+	transform: translate(50%, -50%);
+	right: -30px;
+}
+ul li:nth-child(even) .circle {
+	transform: translate(-50%, -50%);
+	left: -30px;
 }
 
-.timeline-date {
-  color: var(--text-light-color);
-  font-size: 0.875rem;
-  margin-bottom: 10px;
-  display: block;
+/* Date adjustment colour*/
+
+ul li .date {
+	position: absolute;
+	width: 130px;
+	height: 33px;
+	background-image: linear-gradient(to right, var(--first-color), var(--first-color));
+	border-radius: 15px;
+	top: -45px;
+	display: grid;
+	place-items: center;
+	color: #000000;
+	font-size: 13px;
+	box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.318);
+}
+.container ul li:nth-child(odd) {
+	float: left;
+	clear: right;
+	text-align: right;
+	transform: translateX(-30px);
+}
+ul li:nth-child(odd) .date {
+	right: 20px;
+}
+.container ul li:nth-child(even) {
+	float: right;
+	clear: left;
+	transform: translateX(30px);
+}
+ul li .heading {
+	font-size: 17px;
+	color: var(--white-grey-color);
 }
 
-/* Add responsive styles for smaller screens */
-@media screen and (max-width: 768px) {
-  .timeline-container {
-      margin-left: 20px;
-  }
-
-  .timeline-block {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .timeline-content {
-      width: 100%;
-  }
-
-  .timeline-block:before {
-      left: 50%;
-      transform: translateX(-50%);
-  }
+/* Responsibilities adjustment colour*/
+ul li p {
+	font-size: 13px;
+	color: var(--grey-grey-color);
+	line-height: 18px;
+	margin: 6px 0 4px 0;
 }
 
+/* Readmore link adjustment colour*/
+
+ul li a {
+	font-size: 13px;
+	text-decoration: none;
+	color: var(--white-black-color);
+	transition: all 0.3s ease;
+}
+
+
+@media only screen and (min-width:798px) and (max-width: 1100px) {
+	.container{
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 798px) {
+	.container{
+		width: 70%;
+		transform: translateX(20px);
+	}
+	.container ul::after{
+		left: -40px;
+	}
+	.container ul li {
+		width: 100%;
+		float: none;
+		clear: none;
+		margin-bottom: 80px;
+	}
+	.container ul li .circle{
+		left: -40px;
+		transform: translate(-50%, -50%);
+	}
+	.container ul li .date{
+		left: 20px;
+	}
+	.container ul li:nth-child(odd) {
+		transform: translateX(0px);
+		text-align: left;
+	}
+	.container ul li:nth-child(even) {
+		transform: translateX(0px);
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.container{
+		width: 80%;
+	}
+	.container ul::after{
+		left: -20px;
+	}
+	.container ul li .circle{
+		left: -20px;
+	}
+}
