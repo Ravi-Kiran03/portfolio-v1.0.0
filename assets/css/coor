@@ -1,0 +1,50 @@
+  /*===== Colors for Dark Mode (default) =====*/
+  :root {
+  --background-color: #000000; /* Dark background */
+  --text-color: #ffffff; /* Light text */
+  --header-background-color: #000000; /* Dark header background */
+  --first-color: #00ff99; /* Accent color */
+  --second-color: #ffffff; /* Light mode text */
+  --nav-menu-background: #000000; /* Dark mode nav background */
+  --nav-link-color: #ffffff; /* Light mode link color */
+  --footer-background-color: #000000; /* Footer background */
+  --button-background: #00ff99; /* Button background */
+  --button-text-color: #000000; /* Button text color */
+  --section-title-color: #00ff99; /* Section title color */
+
+  --black-white-color: #000000;
+  --green-black-color: #00ff99;
+  --green-white-color: #00ff99;
+  --white-black-color: #ffffff;
+  --white-green-color: #ffffff;
+  --green-green-color: #00ff99;
+  --White-grey-color: #ffffff;
+  --grey-grey-color: #CCCCCC;
+
+
+
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  --background-color: #ffffff; /* Light background */
+  --text-color: #000000; /* Dark text */
+  --header-background-color: #f0f0f0; /* Light header background */
+  --first-color: #00FF7F; /* Accent color */
+  --second-color: #000000; /* Light mode text */
+  --nav-menu-background: #f0f0f0; /* Light mode nav background */
+  --nav-link-color: #000000; /* Light mode link color */
+  --footer-background-color: #f0f0f0; /* Footer background */
+  --button-background: #000000; /* Button background */
+  --button-text-color: #000000; /* Button text color */
+  --section-title-color: #00FF7F; /* Section title color */
+
+  --black-white-color: #ffffff;
+  --green-black-color: #000000;
+  --green-white-color: #ffffff;
+  --white-black-color: #000000;
+  --white-green-color: #00FF7F;
+  --green-green-color: #00FF7F;
+  --White-grey-color: #222222;
+  --grey-grey-color: #222222;
+}

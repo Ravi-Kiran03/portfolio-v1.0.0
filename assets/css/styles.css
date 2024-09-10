@@ -268,6 +268,7 @@ img {
   display: flex;
   flex-direction: row;
   margin-top: 0px;
+  margin-left: -20px;
   
 }
 .home__social-icon {
@@ -282,7 +283,7 @@ img {
   border-radius: 50%; /* Circular shape */
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   margin: 15px; /* Space between icons */
-  margin-top: -10px;
+  margin-top: -3rem;
 
 }
 
@@ -307,7 +308,7 @@ img {
   bottom: -50px;
   width: 260px;
   height: auto;
-  margin-bottom: -80px;
+  margin-bottom: -50px;
 
 }
 .home__blob {
@@ -323,7 +324,6 @@ img {
 /*BUTTONS*/
 .button {
   display: inline-block;
-  align-items: center; /* Optional: Only needed if using flex or grid */
   background-color: var(--background-color); /* Dynamic background color */
   color: var(--green-black-color); /* Dynamic text color */
   padding: 10px 20px;
@@ -333,6 +333,8 @@ img {
   border: 2px solid var(--green-black-color); /* Green border */
   transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
   vertical-align: middle; /* Aligns with other inline elements */
+  position: relative;
+  top: -3rem;
 }
 
 .button i {
@@ -409,16 +411,90 @@ img {
 }
 
 /* ===== CONTACT =====*/
+
+.contact__container {
+  display: grid;
+  justify-items: center; /* Centers the form in the grid */
+}
+
+.contact__form {
+  width: 100%;
+  max-width: 500px; /* Adjust as necessary */
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+/* Floating label styles */
+.floating-label {
+  position: absolute;
+  left: 1rem; /* Align with padding of the input */
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.3s ease all;
+  font-size: var(--normal-font-size);
+  color: var(--second-color);
+  pointer-events: none;
+}
+
 .contact__input {
   width: 100%;
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-semi);
-  padding: 1rem;
+  padding: 1.2rem 1rem 0.5rem 1rem; /* Space for label */
   border-radius: 0.5rem;
   border: 1.5px solid var(--second-color);
+  font-size: var(--normal-font-size);
+  font-weight: normal;
+  color: var(--white-black-color);
   outline: none;
-  margin-bottom: var(--mb-4);
+  margin-bottom: 0.10rem;
+  position: relative;
+  background-color: var(--black-white-color);
+  transition: 0.3s ease all; /* Smooth transition for padding and border */
+
 }
+
+/* Move label when input is focused */
+.contact__input:focus ~ .floating-label,
+.contact__input:not(:placeholder-shown) ~ .floating-label {
+  top: -1px; /* Moves label to top */
+  font-size: 0.85rem; /* Make the label smaller */
+  background-color: var(--background-color); /* Background for label to make it readable */
+  padding: 0 5px; /* Add padding around label */
+  left: 1.2rem; /* Keeps label aligned */
+  font-size: 0.8rem; /* Smaller font for the label */
+  color: var(--green-black-color); /* Change color when floating */
+}
+
+
+
+
+/* Focused state for input */
+.contact__input:focus {
+  
+  border-color: var(--green-black-color); /* Change border color on focus */
+  outline: none;
+}
+
+/* Ensure padding is adjusted when label floats, even if not focused */
+.contact__input:not(:placeholder-shown) {
+  padding-top: 1.5rem; /* Make space for floating label */
+}
+
+/* Input container for positioning */
+.input-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+textarea.contact__input ~ label {
+  left: 10px;
+  top: 1.1rem;
+  background-color: var(--background-color); /* To avoid text overlapping with border */
+  padding: 0 5px;
+  z-index: 1;
+}
+
 /* SEND BUTTON */
 .contact__button {
   display: inline-flex;
@@ -433,6 +509,8 @@ img {
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   margin-left: auto;
+  margin-top: 3rem; /* Decreased the gap between fields and button */
+
 }
 
 .contact__button:hover {
@@ -442,7 +520,8 @@ img {
 }
 
 .contact__button i {
-  margin-right: 8px; /* Space between icon and text */
+  margin-left: 8px; /* Space between icon and text */
+  font-size: 1.2rem; /* Adjust size of the icon if necessary */
 }
 
 /* ===== FOOTER =====*/
@@ -492,26 +571,98 @@ img {
 
 /* ===== MEDIA QUERIES=====*/
 
-/* For screens between 230px and 315px */
+/* For Very Small Screens (230px - 315px) */
 @media screen and (max-width: 315px) and (min-width: 230px) {
-  .home__img {
-    bottom: -300px; /* Shift the image down */
-    left: 10px;
-  }
+  .home__title {
+  margin-bottom: 6rem;
+  margin-top: -2rem;
 
-.home__social {
-  margin-bottom: 50px; /* Reduce margin between icons and image */
+  }
   
-}
-
-}
-
-/* For screens between 315px and 575px */
-@media screen and (max-width: 575px) and (min-width: 315px) {
   .home__img {
-    bottom: -550px; /* Adjust to the desired position */
-    left: 10px;
+    position: relative;
+    bottom: 30rem; /* Adjust vertical position */
+    left: -25px;
+    right: 0;
+    margin: 0 auto; /* Center the image horizontally */
+    max-width: 90%; /* Make the width responsive to the screen size */
+    width: 20rem; /* Default width */
   }
+
+  .home__social {
+    position: relative;
+    top: 1rem; /* Moves social icons up */
+    left: 0;
+    right: 0;  /* Moves social icons to the right */
+    margin: 0 auto; /* Centers the social icons horizontally */
+    display: flex; /* Use flexbox to handle horizontal alignment */
+    justify-content: center; /* Center the social icons */
+    
+    
+  }
+
+  .button {
+    position: relative;
+    top: 18rem;
+    left: 0.5rem;  /* Moves the button right */
+    margin-top: 10rem;
+
+  }
+
+}
+
+/* For Small Mobile Screens (315px - 575px) */
+@media screen and (max-width: 575px) and (min-width: 315px) {
+  
+ .home__title {
+  margin-bottom: 6rem;
+  margin-top: -2rem;
+
+  }
+  
+  .home__img {
+    position: relative;
+    bottom: 30rem; /* Adjust vertical position */
+    left: -25px;
+    right: 0;
+    margin: 0 auto; /* Center the image horizontally */
+    max-width: 90%; /* Make the width responsive to the screen size */
+    width: 22rem; /* Default width */
+  }
+
+  .home__social {
+    position: relative;
+    top: 1rem; /* Moves social icons up */
+    left: 0;
+    right: 0;  /* Moves social icons to the right */
+    margin: 0 auto; /* Centers the social icons horizontally */
+    display: flex; /* Use flexbox to handle horizontal alignment */
+    justify-content: center; /* Center the social icons */
+    margin-bottom: 0rem;
+    
+    
+  }
+
+  .button {
+    position: relative;
+    top: 1rem;
+    left: 5rem;  /* Moves the button right */
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+
+    .about {
+      margin-top: -rem; /* Remove any extra margin at the top */
+      padding-top: 0rem; /* Optionally reduce padding to minimize the gap */
+      
+    }
+  
+    .about__container {
+      margin-top: -30rem;
+      padding-top: -50rem; /* Minimize gap between the button and the About container */
+    }
+
+  }
+
 }
 
 @media screen and (max-width: 768px) and (min-width: 574px) {
@@ -527,14 +678,14 @@ img {
 
   }
 
-
-  /* Alternatively, you can add space specifically below the image */
   .home {
     padding-bottom: 50px; /* Increase padding to prevent the image from overlapping */
   }
 }
 
-@media screen and (min-width: 576px) {  
+/* For Medium-Sized Mobile Screens (576px - 768px) */
+
+@media screen and (max-width: 768px) and (min-width: 576px) {
   .about__container {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
@@ -559,7 +710,7 @@ img {
   }
 }
 
-/* For screens larger than 768px */
+/* For Tablet and Up (Screens Larger than 768px) */
 
 @media screen and (min-width: 768px) {
   body {
@@ -572,6 +723,11 @@ img {
   .section-title {
     margin-bottom: var(--mb-6);
   }
+
+  .home .section-title {
+    margin-bottom: -2rem;
+  }
+
   .section-title::after {
     width: 80px;
     top: 3rem;
@@ -597,8 +753,10 @@ img {
     padding: 8rem 0 2rem;
   }
   .home__img {
-    width: 380px;
-    bottom: 0.3rem;
+    width: 300px;
+    position: absolute;
+    bottom: 8rem;
+    right: 1rem;
   }
 
   .about__container {
@@ -619,7 +777,7 @@ img {
   }
 }
 
-/* FOR Screens larger than 992 */
+/* For Desktops and Laptops Screens larger than 992 */
 
 @media screen and (min-width: 992px) {
   .bd-grid {
@@ -632,13 +790,22 @@ img {
   .home__img {
     width: 480px;
     bottom: 2rem;
+    right: -2rem;
   }
   .section-title {
-    margin-top: 100px; /* Adjust to create space between the title and the image */
+    margin-top: 50px; /* Adjust to create space between the title and the image */
   }
   .work .section-title {
     margin-top: 20px; /* Extra margin specifically for the Work section title */
   }
+  .about .section-title {
+    margin-top: 10px; /* Extra margin specifically for the Work section title */
+  }
+  .skills .section-title {
+    margin-top: 20px; /* Extra margin specifically for the Work section title */
+    margin-bottom: 6rem;
+  }
+  
 }
 
 /* Default Dark Mode Styles */
